@@ -1,6 +1,6 @@
 {
   "name": "directory-structure-json",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Getting directory structures and traversing them in JSON",
   "main": "index.js",
   "author": "atracaelus@gmail.com",
