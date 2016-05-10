@@ -1,7 +1,6 @@
 var path = require('path');
-var fs = require('fs');
 
-function getStructure (dir, callback) {
+function getStructure (fs, dir, callback) {
     var results = [];
     var total = { files: 0, folders: 0 };
 
@@ -16,7 +15,7 @@ function getStructure (dir, callback) {
             file = path.resolve(dir, file);
             fs.stat(file, function (err, stat) {
                 if (stat && stat.isDirectory()) {
-                    getStructure(file, function (err, res, tot) {
+                    getStructure(fs, file, function (err, res, tot) {
                         total.folders = total.folders + tot.folders + 1;
                         total.files = total.files + tot.files;
                         results.push({ name: path.basename(file), type: 'folder', children: res });

@@ -3,7 +3,7 @@ Directory Structure JSON
 
 This module exposes functions with which you can:
 
-* Get a JSON structure of a folder (including subdirectories and files)
+* Get a JSON structure of a folder (including subdirectories and files), note that you have specify the `filesystem` to use yourself
 * Traverse a structure, giving callbacks to execute when a file or folder is found
 
 ## Installation
@@ -47,8 +47,9 @@ This module exposes functions with which you can:
 ``` javascript
 var DirectoryStructureJSON = require('directory-structure-json');
 var basepath = 'path/to/some/folder';
+var fs = require('fs'); // you can select any filesystem as long as it implements the same functions that native fs uses.
 
-DirectoryStructureJSON.getStructure(basepath, function (err, structure, total) {
+DirectoryStructureJSON.getStructure(fs, basepath, function (err, structure, total) {
     if (err) console.log(err);
 
     console.log('there are a total of: ', total.folders, ' folders and ', total.files, ' files');
