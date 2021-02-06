@@ -56,7 +56,6 @@ function getStructureWithContents (fs, dir, callback) {
                     });
                 }
                 else {
-                    console.log(file)
                     fs.readFile(file, function(err,data) {
                         if(err)
                             console.log(err)
